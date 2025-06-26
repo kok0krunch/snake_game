@@ -42,4 +42,21 @@ class SnakeGame:
             
         self.snake.coordinates.insert(0, (x, y))
         square = self.snake.draw_segment(x, y)
-        self.snake.squares.insert(0, square)    
+        self.snake.squares.insert(0, square) 
+        
+        if x == self.food.coordinates[0] and y == self.food.coordinates[1]:
+            self.score += 1
+            self.label.config(text="Score:{}".format(self.score))
+            self.canvas.delete("food")
+            self.food = Food(self.canvas)
+            if self.score % 5 == 0 and self.speed > 30:
+                self.speed -= 10
+        else:
+            del self.snake.coordinates[-1]
+            self.canvas.delete(self.snake.squares[-1])
+            del self.snake.squares[-1]
+
+        if self.check_collisions():
+            self.game_over()
+        else:
+            self.window.after(self.speed, self.next_turn)
