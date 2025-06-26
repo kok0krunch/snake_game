@@ -13,3 +13,8 @@ class Food(GameObject):
         super().__init__(canvas, x, y, SPACE_SIZE, FOOD_COLOR)
         self.coordinates = (x, y)
         self.oval = self.draw()
+        
+    def draw(self):
+        return self.canvas.create_oval(
+            self.x, self.y, self.x + self.size, self.y + self.size, fill=self.color, tag="food"
+        )
