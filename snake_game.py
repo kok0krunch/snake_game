@@ -84,3 +84,9 @@ class SnakeGame:
                 return True
 
         return False
+    
+    def game_over(self):
+        self.running = False
+        self.canvas.delete("all")
+        self.canvas.create_text(self.canvas.winfo_width()/2, self.canvas.winfo_height()/2,
+                               font=('consolas',70), text="GAME OVER", fill="red", tag="gameover")
