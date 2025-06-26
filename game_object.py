@@ -5,3 +5,6 @@ class GameObject:
         self.y = y
         self.size = size
         self.color = color
+    
+    def draw(self):
+        raise NotImplementedError("Subclasses must implement draw()")
