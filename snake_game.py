@@ -60,3 +60,13 @@ class SnakeGame:
             self.game_over()
         else:
             self.window.after(self.speed, self.next_turn)
+        
+    def change_direction(self, new_direction):
+        if new_direction == 'left' and self.direction != 'right':
+            self.direction = new_direction
+        elif new_direction == 'right' and self.direction != 'left':
+            self.direction = new_direction
+        elif new_direction == 'up' and self.direction != 'down':
+            self.direction = new_direction
+        elif new_direction == 'down' and self.direction != 'up':
+            self.direction = new_direction
