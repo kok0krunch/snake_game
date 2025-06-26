@@ -13,3 +13,8 @@ class Snake(GameObject):
         for i in range(0, BODY_PARTS):
             self.coordinates.append((0, 0))
             self.squares.append(self.draw_segment(0, 0))
+            
+    def draw_segment(self, x, y):
+        return self.canvas.create_rectangle(
+            x, y, x + SPACE_SIZE, y + SPACE_SIZE, fill=SNAKE_COLOR, tag="snake"
+        )
