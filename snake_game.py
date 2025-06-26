@@ -39,3 +39,7 @@ class SnakeGame:
             x -= SPACE_SIZE
         elif self.direction == "right":
             x += SPACE_SIZE
+            
+        self.snake.coordinates.insert(0, (x, y))
+        square = self.snake.draw_segment(x, y)
+        self.snake.squares.insert(0, square)    
