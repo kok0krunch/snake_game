@@ -17,3 +17,10 @@ class SnakeGame:
         self.food = Food(self.canvas)
         self.running = True
         self.speed = SPEED
+        
+        self.window.bind('<Left>', lambda event: self.change_direction('left'))
+        self.window.bind('<Right>', lambda event: self.change_direction('right'))
+        self.window.bind('<Up>', lambda event: self.change_direction('up'))
+        self.window.bind('<Down>', lambda event: self.change_direction('down'))
+
+        self.next_turn()
