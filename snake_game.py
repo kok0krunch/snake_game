@@ -24,3 +24,18 @@ class SnakeGame:
         self.window.bind('<Down>', lambda event: self.change_direction('down'))
 
         self.next_turn()
+    
+    def next_turn(self):
+        if not self.running:
+            return
+
+        x, y = self.snake.coordinates[0]
+
+        if self.direction == "up":
+            y -= SPACE_SIZE
+        elif self.direction == "down":
+            y += SPACE_SIZE
+        elif self.direction == "left":
+            x -= SPACE_SIZE
+        elif self.direction == "right":
+            x += SPACE_SIZE
